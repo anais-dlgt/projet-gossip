@@ -1,0 +1,12 @@
+<h1>&Eacute;diter le gossip n°<%= @gossip.id %></h1>
+
+<%= form_for @gossip do |f| %>
+<label>Le titre : </label><%= @gossip.title %>
+<%= f.label :content, "Le contenu" %>
+<%= f.text_area :content %>
+<%= f.label :anonymous_gossiper, "Ton petit nom" %>
+<%= f.text_field :anonymous_gossiper %>
+<%= f.submit "Modifier le gossip" %>
+<% end %>
+
+<%= link_to 'Clique pour détruire', @gossip, method: :delete %>

@@ -1,0 +1,7 @@
+<h1>&Eacute;diter le commentaire n°<%= @comment.id %></h1>
+
+
+<p> <%= @comment.content %> </p>
+<p> Son auteur : <%= @comment.anonymous_commentor %> </p>
+
+<%= link_to 'Clique pour détruire', @gossip, method: :delete %>

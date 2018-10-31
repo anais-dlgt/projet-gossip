@@ -1,0 +1,24 @@
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <td>Numéro du gossip</td>
+        <td>Titre du gossip</td>
+        <td>Contenu du gossip</td>
+        <td>Auteur du contenu</td>
+        <td>Lien du gossip</td>
+      </tr>
+    </thead>
+  <% Gossip.all.each do |gossip| %>
+    <tr>
+      <td><%= gossip.id %></td>
+      <td><%= gossip.title %></td>
+      <td><%= gossip.content %></td>
+      <td><%= gossip.anonymous_gossiper %></td>
+      <td><%= link_to 'Voir le gossip', gossip_path(gossip.id) %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Créer un nouveau gossip', new_gossip_path %>

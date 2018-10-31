@@ -1,0 +1,11 @@
+<h1>Créer un gossip</h1>
+
+<%= form_for @gossip do |f| %>
+<%= f.label :title, "Le titre"%>
+<%= f.text_field :title%>
+<%= f.label :content, "Le contenu"%>
+<%= f.text_area :content %>
+<%= f.label :anonymous_gossiper, "Ton petit nom"%>
+<%= f.text_field :anonymous_gossiper %>
+<%= f.submit "Créer le gossip" %>
+<% end %>

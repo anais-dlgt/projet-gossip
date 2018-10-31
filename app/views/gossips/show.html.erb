@@ -1,0 +1,42 @@
+<h1> Voici le gossip n°<%= @gossip.id %></h1>
+
+<p> <%= @gossip.title %> </p>
+<p> Son contenu : <%= @gossip.content %> </p>
+<p> Son auteur : <%= @gossip.anonymous_gossiper %> </p>
+
+<p><%= link_to "Retour à l'accueil", static_pages_home_path %> </p>
+
+<!-- COMMENTAIRES -->
+
+<h2>Commentaires</h2>
+  <% @gossip.comments.each do |comment| %>
+    <p>
+      <strong>Anonymous Commentor :</strong>
+      <%= comment.anonymous_commentor %>
+    </p>
+
+    <p>
+      <strong>Commentaire :</strong>
+      <%= comment.content %>
+    </p>
+
+<p><%= link_to "Editer le commentaire", edit_gossip_comment_path(comment.id) %></p>
+
+  <% end %>
+
+<!-- AJOUTER UN COMMENTAIRE -->
+
+<h2> Ajouter un commentaire </h2>
+<%= form_with(model: [ @gossip, @gossip.comments.build ], local: true) do |f| %>
+  <p>
+    <%= f.label :anonymous_commentor, "Ton petit nom" %><br>
+    <%= f.text_field :anonymous_commentor %>
+  </p>
+  <p>
+    <%= f.label :content, "Ton commentaire" %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit "Publier mon commentaire" %>
+  </p>
+<% end %>
