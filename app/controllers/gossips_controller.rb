@@ -11,7 +11,13 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.create(gossip_params)
+    @gossip = Gossip.new(gossip_params)
+    puts "EHOH"
+    puts @gossip
+    @gossip.anonymous_gossiper = @current_user.pseudo
+    puts "EHOH"
+    puts @gossip
+    @gossip.save
     redirect_to gossip_path(@gossip.id)
   end
 
@@ -27,14 +33,20 @@ class GossipsController < ApplicationController
   end
 
   def destroy
-    @gossip.destroy
-    redirect_to gossips_path
+    if @current_user.pseudo == @gossip.anonymous_gossiper
+      @gossip.destroy
+      flash[:info] = "Le gossip a été supprimé avec succès"
+      redirect_to gossips_path
+    else
+      flash[:info] = "On ne supprime pas les commentaires des autres rooooh"
+      redirect_to gossip_path(@gossip.id)
+    end
   end
 
   private
 
   def gossip_params
-    params.require(:gossip).permit(:title, :content, :anonymous_gossiper)
+    params.require(:gossip).permit(:title, :content)
   end
 
   def set_gossip

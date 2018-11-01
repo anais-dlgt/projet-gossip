@@ -1,6 +1,8 @@
 <h1>Edite ton profil !</h1>
 
 <%= form_for @user do |f| %>
+<%= f.label :pseudo, "Ton pseudo"%></br>
+<%= f.text_field :pseudo%></br>
 <%= f.label :first_name, "Ton prénom"%></br>
 <%= f.text_field :first_name%></br>
 <%= f.label :last_name, "Ton nom"%></br>
