@@ -1,0 +1,11 @@
+<h1>Connexion</h1>
+<br/><br/><br/>
+<a href="/">Retourner à l'accueil</a>
+<br/><br/><br/>
+<%= form_tag "/registration/new", method: :post do %>
+  <label for="email">Email</label>
+  <input type="text" name="email" />
+  <label for="password">Mot de passe</label>
+  <input type="password" name="password" />
+  <input type="submit" value="Se connecter" />
+<% end %>

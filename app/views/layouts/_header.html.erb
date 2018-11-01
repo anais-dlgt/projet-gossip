@@ -4,7 +4,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Accueil", '/' %></li>
         <li><%= link_to "Index des gossips", gossips_path %></li>
+        <% if @current_user %>
         <li><%= link_to "Nouveau gossip", new_gossip_path %></li>
+        <li><%= link_to "#{@current_user.first_name}", user_path(@current_user.id) %></li>
+        <li><%= link_to "Se déconnecter", root_path, method: :delete %>
+        <% end %>
       </ul>
     </nav>
   </div>

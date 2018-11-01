@@ -1,0 +1,15 @@
+<h1>Enregistre-toi !</h1>
+
+<%= form_for @user do |f| %>
+<%= f.label :first_name, "Ton prénom"%></br>
+<%= f.text_field :first_name%></br>
+<%= f.label :last_name, "Ton nom"%></br>
+<%= f.text_field :last_name %></br>
+<%= f.label :email, "Ton email"%></br>
+<%= f.email_field :email %></br>
+<%= f.label :age, "Ton âge"%></br>
+<%= f.number_field :age %></br>
+<%= f.label :password, "Ton mot de passe"%></br>
+<%= f.text_field :password %></br>
+<%= f.submit "Je m'enregistre" %></br>
+<% end %>

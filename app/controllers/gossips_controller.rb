@@ -1,6 +1,9 @@
 class GossipsController < ApplicationController
+
+  before_action :set_gossip, only: [:show, :edit, :update, :destroy]
+
   def index
-    @gossip = Gossip.all.order("created_at DESC")
+    @gossip = Gossip.all.order("created_at ASC")
   end
 
   def new
@@ -13,21 +16,17 @@ class GossipsController < ApplicationController
   end
 
   def show
-    @gossip = Gossip.find(params[:id])
   end
 
   def edit
-    @gossip = Gossip.find(params[:id])
   end
 
   def update
-    @gossip = Gossip.find(params[:id])
     @gossip.update(gossip_params)
     redirect_to gossip_path(@gossip.id)
   end
 
   def destroy
-    @gossip = Gossip.find(params[:id])
     @gossip.destroy
     redirect_to gossips_path
   end
@@ -36,5 +35,9 @@ class GossipsController < ApplicationController
 
   def gossip_params
     params.require(:gossip).permit(:title, :content, :anonymous_gossiper)
+  end
+
+  def set_gossip
+    @gossip = Gossip.find(params[:id])
   end
 end
