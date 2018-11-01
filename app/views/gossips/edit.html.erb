@@ -4,8 +4,7 @@
 <label>Le titre : </label><%= @gossip.title %>
 <%= f.label :content, "Le contenu" %>
 <%= f.text_area :content %>
-<%= f.label :anonymous_gossiper, "Ton petit nom" %>
-<%= f.text_field :anonymous_gossiper %>
+<%= @current_user.pseudo %>
 <%= f.submit "Modifier le gossip" %>
 <% end %>
 

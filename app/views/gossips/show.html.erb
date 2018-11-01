@@ -4,7 +4,11 @@
 <p> Son contenu : <%= @gossip.content %> </p>
 <p> Son auteur : <%= @gossip.anonymous_gossiper %> </p>
 
+<% if @current_user %>
+
 <p><%= link_to "Editer le gossip", edit_gossip_path(@gossip) %> </p>
+
+<% end %>
 
 <p><%= link_to "Retour à l'accueil", static_pages_home_path %> </p>
 
@@ -22,11 +26,16 @@
       <%= comment.content %>
     </p>
 
+<% if @current_user %>
+
 <p><%= link_to "Editer le commentaire", edit_gossip_comment_path(@gossip, comment) %></p>
 
-  <% end %>
+<% end %>
+<% end %>
 
 <!-- AJOUTER UN COMMENTAIRE -->
+
+<% if @current_user %>
 
 <h2> Ajouter un commentaire </h2>
 <%= form_for([ @gossip, Comment.new ]) do |f| %>
@@ -41,4 +50,5 @@
   <p>
     <%= f.submit "Publier mon commentaire" %>
   </p>
+<% end %>
 <% end %>
