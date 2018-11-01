@@ -1,6 +1,6 @@
 class GossipsController < ApplicationController
   def index
-    @gossip = Gossip.all
+    @gossip = Gossip.all.order("created_at DESC")
   end
 
   def new

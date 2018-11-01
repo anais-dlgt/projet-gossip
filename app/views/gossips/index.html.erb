@@ -7,6 +7,7 @@
         <td>Contenu du gossip</td>
         <td>Auteur du contenu</td>
         <td>Lien du gossip</td>
+        <td>Nombre de commentaires</td>
       </tr>
     </thead>
   <% Gossip.all.each do |gossip| %>
@@ -15,7 +16,8 @@
       <td><%= gossip.title %></td>
       <td><%= gossip.content %></td>
       <td><%= gossip.anonymous_gossiper %></td>
-      <td><%= link_to 'Voir le gossip', gossip_path(gossip.id) %>
+      <td><%= link_to 'Voir le gossip', gossip_path(gossip.id) %></td>
+      <td><%= gossip.comments.count %></td>
     </tr>
   <% end %>
   </tbody>

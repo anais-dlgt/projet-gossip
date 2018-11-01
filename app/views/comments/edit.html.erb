@@ -1,7 +1,18 @@
 <h1>&Eacute;diter le commentaire n°<%= @comment.id %></h1>
 
 
-<p> <%= @comment.content %> </p>
-<p> Son auteur : <%= @comment.anonymous_commentor %> </p>
+<%= form_for([ @gossip, @comment ]) do |f| %>
+  <p>
+    <%= f.label :anonymous_commentor, "Ton petit nom" %><br>
+    <%= f.text_field :anonymous_commentor %>
+  </p>
+  <p>
+    <%= f.label :content, "Ton commentaire" %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit "Publier mon commentaire" %>
+  </p>
+<% end %>
 
-<%= link_to 'Clique pour détruire', @gossip, method: :delete %>
+<%= link_to 'Clique pour détruire', [@comment.gossip, @comment], method: :delete %>

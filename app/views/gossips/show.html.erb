@@ -20,14 +20,14 @@
       <%= comment.content %>
     </p>
 
-<p><%= link_to "Editer le commentaire", edit_gossip_comment_path(comment.id) %></p>
+<p><%= link_to "Editer le commentaire", edit_gossip_comment_path(@gossip, comment) %></p>
 
   <% end %>
 
 <!-- AJOUTER UN COMMENTAIRE -->
 
 <h2> Ajouter un commentaire </h2>
-<%= form_with(model: [ @gossip, @gossip.comments.build ], local: true) do |f| %>
+<%= form_for([ @gossip, Comment.new ]) do |f| %>
   <p>
     <%= f.label :anonymous_commentor, "Ton petit nom" %><br>
     <%= f.text_field :anonymous_commentor %>
