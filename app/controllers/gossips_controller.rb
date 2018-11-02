@@ -12,11 +12,7 @@ class GossipsController < ApplicationController
 
   def create
     @gossip = Gossip.new(gossip_params)
-    puts "EHOH"
-    puts @gossip
     @gossip.anonymous_gossiper = @current_user.pseudo
-    puts "EHOH"
-    puts @gossip
     @gossip.save
     redirect_to gossip_path(@gossip.id)
   end
@@ -38,7 +34,7 @@ class GossipsController < ApplicationController
       flash[:info] = "Le gossip a été supprimé avec succès"
       redirect_to gossips_path
     else
-      flash[:info] = "On ne supprime pas les commentaires des autres rooooh"
+      flash[:info] = "On ne supprime pas les gossips des autres rooooh"
       redirect_to gossip_path(@gossip.id)
     end
   end

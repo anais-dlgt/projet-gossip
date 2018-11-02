@@ -1,11 +1,14 @@
-<h1>Connexion</h1>
+<br/>
+<h1 class="text-center">Connexion</h1>
 <br/><br/><br/>
-<a href="/">Retourner à l'accueil</a>
-<br/><br/><br/>
+<div class="container">
 <%= form_tag "/registration/new", method: :post do %>
-  <label for="email">Email</label>
-  <input type="text" name="email" />
+  <p class="text-center"><label for="email">Email</label>
+  <input type="text" name="email" placeholder="Entre ton email" />
   <label for="password">Mot de passe</label>
-  <input type="password" name="password" />
-  <input type="submit" value="Se connecter" />
+  <input type="password" name="password" placeholder="Entre ton mot passe" /><br/></p>
+  <p class="text-center"><input type="submit" value="Se connecter" class="btn btn-lg btn-info" /></p>
 <% end %>
+</div>
+<br/><br/>
+<p class="text-center"><a href="/">Retourner à l'accueil</a></p>

@@ -1,5 +1,5 @@
-<h1>Bienvenue <%= @user.first_name %></h1>
+<h1 class="text-center">Bienvenue <%= @user.first_name %></h1><br/>
 
-<p><%= link_to "Editer mon profil", edit_user_path %> </p>
+<p class="text-center"><%= link_to "Editer mon profil", edit_user_path, class: "btn btn-lg btn-info" %> </p>
 
-<p><%= link_to "Retour à l'accueil", static_pages_home_path %> </p>
+<p class="text-center"><%= link_to "Retour à l'accueil", static_pages_home_path, class: "btn btn-lg btn-info" %> </p>

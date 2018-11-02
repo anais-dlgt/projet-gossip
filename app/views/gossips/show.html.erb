@@ -1,23 +1,29 @@
-<h1> Voici le gossip n°<%= @gossip.id %></h1>
+<div class="container">
+  <p class="text-center"><h1 class="display-8"> Gossip n°<%= @gossip.id %></h1><%= link_to "Retour à l'accueil", static_pages_home_path %></p><br/>
+  <div class="pagination justify-content-center">
+    <div class="card bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header text-center display-5">
+        <%= @gossip.title %>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p><%= @gossip.content %> </p>
+          <footer class="blockquote-footer">Signé <%= @gossip.anonymous_gossiper %> ❤️</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
 
-<p> <%= @gossip.title %> </p>
-<p> Son contenu : <%= @gossip.content %> </p>
-<p> Son auteur : <%= @gossip.anonymous_gossiper %> </p>
-
-<% if @current_user %>
-
-<p><%= link_to "Editer le gossip", edit_gossip_path(@gossip) %> </p>
-
-<% end %>
-
-<p><%= link_to "Retour à l'accueil", static_pages_home_path %> </p>
+  <% if @current_user %>
+    <p class="text-center"><%= link_to "Editer le gossip", edit_gossip_path(@gossip), class: "btn btn-lg btn-info" %> </p>
+  <% end %>
 
 <!-- COMMENTAIRES -->
-
+<div class="container">
 <h2>Commentaires</h2>
   <% @gossip.comments.each do |comment| %>
     <p>
-      <strong>Anonymous Commentor :</strong>
+      <strong>De :</strong>
       <%= comment.anonymous_commentor %>
     </p>
 
@@ -32,23 +38,28 @@
 
 <% end %>
 <% end %>
+<br/>
 
 <!-- AJOUTER UN COMMENTAIRE -->
 
 <% if @current_user %>
 
 <h2> Ajouter un commentaire </h2>
+<div class="form-group">
 <%= form_for([ @gossip, Comment.new ]) do |f| %>
   <p>
     <%= f.label :anonymous_commentor, "Ton petit nom" %><br>
-    <%= f.text_field :anonymous_commentor %>
+    <%= f.text_field :anonymous_commentor, class:"form-control" %>
   </p>
   <p>
     <%= f.label :content, "Ton commentaire" %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class:"form-control" %>
   </p>
   <p>
-    <%= f.submit "Publier mon commentaire" %>
+    <%= f.submit "Publier mon commentaire", class:"btn btn-lg btn-info" %>
   </p>
 <% end %>
+</div>
 <% end %>
+</div>
+</div>

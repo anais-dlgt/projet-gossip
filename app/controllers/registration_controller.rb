@@ -10,7 +10,7 @@ class RegistrationController < ApplicationController
       @current_user = User.where(email: params[:email], password: params[:password]).first
       if @current_user
         session[:user_id] = @current_user.id
-        flash[:info] = "Vous êtes maintenant connecté"
+        flash[:info] = "Tu es maintenant connecté !"
         redirect_to root_path
       else
         session[:user_id] = nil
@@ -22,7 +22,7 @@ class RegistrationController < ApplicationController
     def destroy
       session.delete(:user_id)
       @current_user = nil
-      flash[:info] = "Vous êtes bien déconnecté"
+      flash[:info] = "Tu es bien déconnecté"
       redirect_to root_path
     end
 end

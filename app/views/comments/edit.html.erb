@@ -1,18 +1,21 @@
-<h1>&Eacute;diter le commentaire n°<%= @comment.id %></h1>
-
-
+<h1 class="text-center">&Eacute;diter le commentaire n°<%= @comment.id %></h1>
+<div class="container">
+<div class="form-group">
 <%= form_for([ @gossip, @comment ]) do |f| %>
   <p>
     <%= f.label :anonymous_commentor, "Ton petit nom" %><br>
-    <%= f.text_field :anonymous_commentor %>
+    <%= f.text_field :anonymous_commentor, class:"form-control" %>
   </p>
   <p>
     <%= f.label :content, "Ton commentaire" %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class:"form-control" %>
   </p>
   <p>
-    <%= f.submit "Publier mon commentaire" %>
+    <%= f.submit "Editer le commentaire", class:"btn btn-lg btn-info" %>
   </p>
 <% end %>
+</div>
 
-<%= link_to 'Clique pour détruire', [@comment.gossip, @comment], method: :delete %>
+
+<%= link_to 'Détruire le commentaire', [@comment.gossip, @comment], method: :delete, class:"btn btn-lg btn-info" %>
+</div>

@@ -1,13 +1,16 @@
-<div class="center jumbotron">
-
+<div class="container">
+  <br/>
   <% if @current_user %>
-  <h1>Bienvenue <%= @current_user.first_name %> !</h1>
+  <h1 class="text-center">Bienvenue <%= @current_user.first_name %> ! 🤗</h1>
   <% else %>
-  <h1>Bienvenue visiteur anonyme !</h1>
-  <%= link_to "Connecte-toi !", registration_new_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Crée un profil !", new_user_path, class: "btn btn-lg btn-primary" %>
+  <h1 class="text-center">Bienvenue jeune padawan !</h1>
+  <br/>
+  <p class="text-center">
+  <%= link_to "Connecte-toi !", registration_new_path, class: "btn btn-lg btn-info" %>
+  <%= link_to "Crée un profil !", new_user_path, class: "btn btn-lg btn-info" %>
+  </p>
   <% end %>
-
-  <h3>
+  <br/><br/><br/>
+  <h3 class="text-center">
     Ici, tu peux retrouver les gossips des moussaillons 🎓
   </h3>

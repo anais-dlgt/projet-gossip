@@ -1,11 +1,16 @@
-<h1>&Eacute;diter le gossip n°<%= @gossip.id %></h1>
+<h1 class="text-center">&Eacute;diter le gossip n°<%= @gossip.id %></h1>
 
-<%= form_for @gossip do |f| %>
-<label>Le titre : </label><%= @gossip.title %>
-<%= f.label :content, "Le contenu" %>
-<%= f.text_area :content %>
-<%= @current_user.pseudo %>
-<%= f.submit "Modifier le gossip" %>
-<% end %>
+<div class="container">
+  <div class="form-group">
+    <%= form_for @gossip do |f| %>
+    <%= f.label :title, "Le titre"%>
+    <%= f.text_field :title, placeholder:"Donne-nous envie!", class:"form-control"%><br/>
+    <%= f.label :content, "Le contenu"%>
+    <%= f.text_area :content, placeholder:"On veut du doss!!!", class:"form-control" %><br/>
+    C'est <%= @current_user.pseudo %> qui balance !<br/><br/>
+    <p class="text-center"><%= f.submit "Editer le gossip", class:"btn btn-lg btn-info" %></p>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'Clique pour détruire', @gossip, method: :delete %>
+<p class="text-center"><%= link_to 'Clique pour détruire', @gossip, method: :delete, class:"btn btn-lg btn-info" %></p>

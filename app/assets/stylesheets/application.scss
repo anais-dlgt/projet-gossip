@@ -13,10 +13,28 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
- body {
-     margin-top: 60px !important;
-     padding-left: 15px !important;
-     padding-right: 15px !important;
- }
+a
+{
+  color: #3B5998 !important;
+}
+
+a:hover
+{
+  color: #263961 !important;
+  text-decoration: none !important;
+}
+
+.btn, .btn-lg, .btn-info
+{
+  background-color: #3B5998 !important;
+  border-radius: 2 !important;
+	color: #fff !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+	border-color: #263961 !important;
+}
+
+.fond-bleu
+{
+  background-color: #3B5998 !important;
+}

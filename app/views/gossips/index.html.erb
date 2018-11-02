@@ -1,28 +1,32 @@
-<table>
-  <tbody>
-    <thead>
+<br/>
+<h2 class="text-center">La liste des gossips 💁‍</h2><br/>
+<div class="container">
+<table class="table">
+    <thead class="fond-bleu">
       <tr>
-        <td>Numéro du gossip</td>
-        <td>Titre du gossip</td>
-        <td>Contenu du gossip</td>
-        <td>Auteur du contenu</td>
-        <td>Lien du gossip</td>
-        <td>Nombre de commentaires</td>
+        <th scope="col" class="text-white">#</th>
+        <th scope="col" class="text-white">Titre du gossip</th>
+        <th scope="col" class="text-white">Contenu du gossip</th>
+        <th scope="col" class="text-white">Anonymous Gossiper</th>
+        <th scope="col" class="text-white">Lien du gossip</th>
+        <th scope="col" class="text-white">Commentaires</th>
       </tr>
     </thead>
+    <tbody>
   <% Gossip.all.each do |gossip| %>
     <tr>
-      <td><%= gossip.id %></td>
-      <td><%= gossip.title %></td>
-      <td><%= gossip.content %></td>
-      <td><%= gossip.anonymous_gossiper %></td>
-      <td><%= link_to 'Voir le gossip', gossip_path(gossip.id) %></td>
-      <td><%= gossip.comments.count %></td>
+      <th scope="row"><%= gossip.id %></th>
+      <th scope="row"><%= gossip.title %></th>
+      <th scope="row"><%= gossip.content %></th>
+      <th scope="row"><%= gossip.anonymous_gossiper %></th>
+      <th scope="row"><%= link_to 'Voir le gossip', gossip_path(gossip.id) %></th>
+      <th scope="row"><%= gossip.comments.count %></th>
     </tr>
   <% end %>
   </tbody>
 </table>
+</div>
 
 <% if @current_user %>
-<%= link_to 'Créer un nouveau gossip', new_gossip_path %>
+<p class="text-center"><%= link_to 'Créer un nouveau gossip', new_gossip_path, class: "btn btn-lg btn-info" %></p>
 <% end %>

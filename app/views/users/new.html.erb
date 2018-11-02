@@ -1,17 +1,16 @@
-<h1>Enregistre-toi !</h1>
-
+<h1 class="text-center">Enregistre-toi !</h1>
+<div class="container">
 <%= form_for @user do |f| %>
-<%= f.label :pseudo, "Ton pseudo"%></br>
-<%= f.text_field :pseudo%></br>
-<%= f.label :first_name, "Ton prénom"%></br>
-<%= f.text_field :first_name%></br>
-<%= f.label :last_name, "Ton nom"%></br>
-<%= f.text_field :last_name %></br>
-<%= f.label :email, "Ton email"%></br>
-<%= f.email_field :email %></br>
-<%= f.label :age, "Ton âge"%></br>
-<%= f.number_field :age %></br>
-<%= f.label :password, "Ton mot de passe"%></br>
-<%= f.text_field :password %></br>
-<%= f.submit "Je m'enregistre" %></br>
+<%= f.label :pseudo, "Ton anonymous gossiper"%><br/>
+<%= f.text_field :pseudo, class:"form-control"%><br/>
+<%= f.label :first_name, "Ton prénom"%><br/>
+<%= f.text_field :first_name, class:"form-control"%><br/>
+<%= f.label :last_name, "Ton nom"%><br/>
+<%= f.text_field :last_name, class:"form-control" %><br/>
+<%= f.label :email, "Ton email"%><br/>
+<%= f.email_field :email, class:"form-control" %><br/>
+<%= f.label :password, "Ton mot de passe"%><br/>
+<%= f.password_field :password, class:"form-control" %><br/>
+<p class="text-center"><%= f.submit "Je m'enregistre", class:"btn btn-lg btn-info" %></p><br/>
 <% end %>
+</div>
